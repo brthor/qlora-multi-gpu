@@ -1,10 +1,10 @@
 
 
-# QLoRA: Efficient Finetuning of Quantized LLMs
+# Multi-GPU QLoRA: Efficient Distributed Finetuning of Quantized LLMs
 
 | [Paper](https://arxiv.org/abs/2305.14314) | [Adapter Weights](https://huggingface.co/timdettmers) | [Demo](https://huggingface.co/spaces/uwnlp/guanaco-playground-tgi) | 
 
-This repo supports the paper "QLoRA: Efficient Finetuning of Quantized LLMs", an effort to democratize access to LLM research. 
+This repo extends the QLoRA repo to support distributed finetuning across multiple GPUs.
 
 QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quantization and is integrated with Hugging Face's [PEFT](https://github.com/huggingface/peft) and [transformers](https://github.com/huggingface/transformers/) libraries. QLoRA was developed by members of the [University of Washington's UW NLP group](https://twitter.com/uwnlp?s=20).
 
