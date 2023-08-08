@@ -212,6 +212,10 @@ class TrainingArguments(transformers.Seq2SeqTrainingArguments):
     save_strategy: str = field(default='steps', metadata={"help": 'When to save checkpoints'})
     save_steps: int = field(default=250, metadata={"help": 'How often to save a model'})
     save_total_limit: int = field(default=40, metadata={"help": 'How many checkpoints to save before the oldest is overwritten'})
+    sharded_ddp: bool = field(default=False)
+    ddp_timeout: int = field(default=7200)
+    ddp_find_unused_parameters: bool = field(default=False)
+    dataloader_num_workers: int = field(default=3)
 
 @dataclass
 class GenerationArguments:
@@ -635,7 +639,7 @@ def make_data_module(tokenizer: transformers.PreTrainedTokenizer, args) -> Dict:
      # Load dataset.
     dataset = load_data(args.dataset)
     dataset = format_dataset(dataset, args.dataset_format)
-
+    print(dataset)
     # Split train/eval, reduce size
     if args.do_eval or args.do_predict:
         if 'eval' in dataset:
@@ -708,6 +712,11 @@ def train():
     set_seed(args.seed)
 
     data_module = make_data_module(tokenizer=tokenizer, args=args)
+
+    if torch.cuda.device_count() > 1:
+        # keeps Trainer from trying its own DataParallelism when more than 1 gpu is available
+        model.is_parallelizable = True
+        model.model_parallel = True
     
     trainer = Seq2SeqTrainer(
         model=model,
