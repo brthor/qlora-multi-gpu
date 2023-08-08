@@ -6,7 +6,7 @@
 
 This repo extends the QLoRA repo to support distributed finetuning across multiple GPUs.
 
-QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quantization and is integrated with Hugging Face's [PEFT](https://github.com/huggingface/peft) and [transformers](https://github.com/huggingface/transformers/) libraries. QLoRA was developed by members of the [University of Washington's UW NLP group](https://twitter.com/uwnlp?s=20).
+QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quantization and is integrated with Hugging Face's [PEFT](https://github.com/huggingface/peft) and [transformers](https://github.com/huggingface/transformers/) libraries. The original QLoRA method was developed by members of the [University of Washington's UW NLP group](https://twitter.com/uwnlp?s=20).
 
 **Note:** This repo was forked from the original QLoRA repo to provide enhanced multi-GPU support. Please see the example notebook in the `examples/` folder of this repo for instructions on how to run multi-GPU finetuning.
 
