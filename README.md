@@ -11,6 +11,7 @@ QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quant
 **Note:** This repo was forked from the original QLoRA repo to provide enhanced multi-GPU support. Please see the example notebook in the `examples/` folder of this repo for instructions on how to run multi-GPU finetuning.
 
 ## Updates
+- 8/7/2023 - Enhanced multi-GPU support and example notebooks
 - 7/19/2023 - Added LLaMA 2 example script and updated version requirements
 - 7/18/2023 - Fixed non-frozen embeddings when adding new tokens
 
