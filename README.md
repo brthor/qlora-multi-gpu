@@ -6,9 +6,9 @@
 
 This repo supports the paper "QLoRA: Efficient Finetuning of Quantized LLMs", an effort to democratize access to LLM research. 
 
-**Note:** This repo was forked from the original QLoRA repo to provide enhanced multi-GPU support. Please see the example notebook in the `examples/` folder of this repo for instructions on how to run multi-GPU finetuning.
-
 QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quantization and is integrated with Hugging Face's [PEFT](https://github.com/huggingface/peft) and [transformers](https://github.com/huggingface/transformers/) libraries. QLoRA was developed by members of the [University of Washington's UW NLP group](https://twitter.com/uwnlp?s=20).
+
+**Note:** This repo was forked from the original QLoRA repo to provide enhanced multi-GPU support. Please see the example notebook in the `examples/` folder of this repo for instructions on how to run multi-GPU finetuning.
 
 ## Updates
 - 7/19/2023 - Added LLaMA 2 example script and updated version requirements
