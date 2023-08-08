@@ -6,6 +6,7 @@
 
 This repo supports the paper "QLoRA: Efficient Finetuning of Quantized LLMs", an effort to democratize access to LLM research. 
 
+**Note:** This repo was forked from the original QLoRA repo to provide enhanced multi-GPU support. Please see the example notebook in the `examples/` folder of this repo for instructions on how to run multi-GPU finetuning.
 
 QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quantization and is integrated with Hugging Face's [PEFT](https://github.com/huggingface/peft) and [transformers](https://github.com/huggingface/transformers/) libraries. QLoRA was developed by members of the [University of Washington's UW NLP group](https://twitter.com/uwnlp?s=20).
 
@@ -107,13 +108,7 @@ You can specify the path to your dataset using the `--dataset` argument. If the 
    ```
 
 ### Multi GPU
-Multi GPU training and inference work out-of-the-box with Hugging Face's Accelerate. Note that the `per_device_train_batch_size` and `per_device_eval_batch_size` arguments are  global batch sizes unlike what their name suggest.
-
-When loading a model for training or inference on multiple GPUs you should pass something like the following to `AutoModelForCausalLM.from_pretrained()`:
-```python
-device_map = "auto"
-max_memory = {i: '46000MB' for i in range(torch.cuda.device_count())}
-```
+Multi GPU training and inference work out-of-the-box with Hugging Face's Accelerate. Please see the multi-GPU Jupyter notebook in the `examples/` folder of this repo for an example of how to run multi-GPU finetuning.
 
 
 ## Sample Outputs
