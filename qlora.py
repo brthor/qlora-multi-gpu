@@ -212,7 +212,7 @@ class TrainingArguments(transformers.Seq2SeqTrainingArguments):
     save_strategy: str = field(default='steps', metadata={"help": 'When to save checkpoints'})
     save_steps: int = field(default=250, metadata={"help": 'How often to save a model'})
     save_total_limit: int = field(default=40, metadata={"help": 'How many checkpoints to save before the oldest is overwritten'})
-    sharded_ddp: bool = field(default=False)
+    sharded_ddp: str = field(default=None)
     ddp_timeout: int = field(default=7200)
     ddp_find_unused_parameters: bool = field(default=False)
     dataloader_num_workers: int = field(default=3)
